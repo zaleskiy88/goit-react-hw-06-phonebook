@@ -17,7 +17,6 @@ export const App = () => {
   const contacts = useSelector(getContacts);
   const contactsFilter = useSelector(getFilterValue);
   const dispatch = useDispatch();
-  console.log(contacts);
 
   const formSubmitHandler = ({ name, number }) => {
     const normalizedNameValue = name.toLowerCase();
