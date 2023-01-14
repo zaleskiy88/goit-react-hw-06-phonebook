@@ -9,13 +9,11 @@ import {
   deleteContact,
   getContacts,
   filterContacts,
-  getFilterValue,
 } from 'index';
 //
 
 export const App = () => {
   const contacts = useSelector(getContacts);
-  const contactsFilter = useSelector(getFilterValue);
   const dispatch = useDispatch();
 
   const formSubmitHandler = ({ name, number }) => {
@@ -39,19 +37,9 @@ export const App = () => {
     dispatch(filterContacts(value));
   };
 
-  const getFilteredContacts = () => {
-    const normalizedFilterValue = contactsFilter.toLowerCase();
-
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilterValue)
-    );
-  };
-
   const onDelete = contactId => {
     dispatch(deleteContact(contactId));
   };
-
-  const filteredContacts = getFilteredContacts();
 
   return (
     <AppContainer>
@@ -60,7 +48,7 @@ export const App = () => {
 
       <h2>Contacts</h2>
       <ContactsFilter inputHandler={inputHandler} />
-      <ContactsList contacts={filteredContacts} onDelete={onDelete} />
+      <ContactsList onDelete={onDelete} />
     </AppContainer>
   );
 };

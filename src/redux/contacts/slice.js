@@ -22,9 +22,3 @@ export const contactsSlice = createSlice({
 
 // imports in: persistedReducer.js
 export const { addContact, deleteContact } = contactsSlice.actions;
-
-// Selectors:
-// Imports in App.jsx
-export const getContacts = state => {
-  return state.contacts;
-};

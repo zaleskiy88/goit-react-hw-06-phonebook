@@ -8,6 +8,7 @@ import './index.css';
 
 export * from 'redux/filter/slice';
 export * from 'redux/contacts/slice';
+export * from 'redux/selectors';
 export * from 'components/ContactsForm/ContactsForm';
 export * from 'components/ContactsList/ContactsList';
 export * from 'components/ContactsFilterInput/ContactsFilterInput';
