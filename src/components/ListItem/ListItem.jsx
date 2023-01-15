@@ -1,12 +1,15 @@
 import React from 'react';
-import { Contact, Button } from 'index';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Contact, Button, deleteContact } from 'index';
+////////////////////////
 
-export const ListItem = ({ name, number, onDelete, id }) => {
+export const ListItem = ({ name, number, id }) => {
+  const dispatch = useDispatch();
   return (
     <Contact>
       {name}: {number}
-      <Button onClick={() => onDelete(id)}>Delete</Button>
+      <Button onClick={() => dispatch(deleteContact(id))}>Delete</Button>
     </Contact>
   );
 };
@@ -14,6 +17,5 @@ export const ListItem = ({ name, number, onDelete, id }) => {
 ListItem.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
 };

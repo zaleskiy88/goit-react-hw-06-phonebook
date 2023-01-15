@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { List, ListItem, getContacts, getFilterValue } from 'index';
-import PropTypes from 'prop-types';
+///////////////////////
 
-export const ContactsList = ({ onDelete }) => {
+export const ContactsList = () => {
   const contacts = useSelector(getContacts);
   const contactsFilter = useSelector(getFilterValue);
 
@@ -21,21 +21,9 @@ export const ContactsList = ({ onDelete }) => {
     <>
       <List>
         {filteredContacts.map(({ name, number, id }) => {
-          return (
-            <ListItem
-              name={name}
-              number={number}
-              onDelete={onDelete}
-              id={id}
-              key={id}
-            />
-          );
+          return <ListItem name={name} number={number} id={id} key={id} />;
         })}
       </List>
     </>
   );
-};
-
-ContactsList.propTypes = {
-  onDelete: PropTypes.func.isRequired,
 };
